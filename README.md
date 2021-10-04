@@ -32,7 +32,7 @@ In this section a description of the modeling approach and steps required to exe
 
 The 1D-CNN architecture has six 1D CNN layers thats feed into three dense layers. Average pooling is used between 1D CNN layers, SiLU activation is used throughout, and dropout is used to help regularize in the dense layers.
 
-Through multiple experiments is was found that polarity inversion was a beneficial augmentation technique. [Audiomentations][6] was used for testing various one-dimensional data augmentation techniques.
+Through multiple experiments it was found that polarity inversion was a beneficial augmentation technique. [Audiomentations][6] was used for testing various one-dimensional data augmentation techniques.
 
 Users are encouraged to modify the files as they see fit to best work with their applications. 
 
