@@ -11,3 +11,5 @@ In this repository an one-dimensional convolutional neural network (1D-CNN) is u
 # Requirements
 
 The required packages are provided in the [requirements.txt](https://github.com/mddunlap924/G2Net_1D-CNN/blob/main/requirements.txt)
+
+The data can be found and needs to be downloaded from [Kaggle](https://www.kaggle.com/c/g2net-gravitational-wave-detection/data). 
