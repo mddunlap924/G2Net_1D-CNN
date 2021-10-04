@@ -2,9 +2,9 @@
 
 
 
-This is code I developed for the [Kaggle G2Net Gravitational Wave Competition](https://www.kaggle.com/c/g2net-gravitational-wave-detection/overview). Thanks to teammates [Johnny Lee](https://www.kaggle.com/wuliaokaola), [Alex](https://www.kaggle.com/lihuajin), and [Coolz](https://www.kaggle.com/cooolz) we were able to finish in 10th position out of 1,219 teams (i.e., top 1%) through creative problem solving and advanced solutions.
+This is code I developed for the [Kaggle G2Net Gravitational Wave Competition](https://www.kaggle.com/c/g2net-gravitational-wave-detection/overview). Thanks to teammates [Johnny Lee](https://www.kaggle.com/wuliaokaola), [Alex](https://www.kaggle.com/lihuajing), and [Coolz](https://www.kaggle.com/cooolz) we were able to finish in 10th position out of 1,219 teams (i.e., top 1%) through creative problem solving and advanced solutions.
 
-The objective of this competition was to determine if a linear sine-sweep signal, also referred to as a chirp waveform, was either present or not in a data instance. The challenge is that the chirp waveform would have a very low signal-to-noise ratio (SNR) and frequency content could change between data instances. SNR is a one, if not the most, informative measures of signal detectability. Fundamentally, this competition was a multi-channel signal detection challenge.
+The objective of this competition was to determine if a linear sine-sweep signal, also referred to as a chirp waveform, was either present or not in a data instance. The challenge is that the chirp waveform would have a very low signal-to-noise ratio (SNR) and frequency content could change between data instances. SNR is one, if not the most, informative measures of signal detectability. Fundamentally, this competition was a multi-channel signal detection challenge.
 
 In this repository an one-dimensional convolutional neural network (1D-CNN) is used to assign a probability from 0-1 for the detection of the chirp waveform. We ensemble this 1D-CNN with other two-dimensional (2D) spectrogram image classification techniques to boost our score. I provide a 2D CQT transform approach [here](https://github.com/mddunlap924/G2Net_Spectrogram-Classification) which uses image classification network architecture(s).
 
@@ -28,9 +28,9 @@ In this section a description of the modeling approach and steps required to exe
 
 3. [pl_model_1d.py]() contains methods and classes for tasks such as data normalization, waveform augmentations, data loaders, data modules, 1D-CNN model description, and checkpoint locations.
 
-4. [helper_functions_1d.py]() contains methods and classes for tasks such as logging data with [Weights & Biases][3], signal process and filtering techniques with [GWpy][4] such as data [spectral whitening][5], loading configuration parameters, and measuring descriptive statistics on the datasets.
+4. [helper_functions_1d.py]() contains methods and classes for tasks such as logging data with [Weights & Biases][3], signal processing and filtering techniques with [GWpy][4] such as data [spectral whitening][5], loading configuration parameters, and measuring descriptive statistics on the datasets.
 
-The 1D-CNN architecture is a six layer 1D CNN thats feed into three dense layers. Average pooling is used between 1D CNN layers, SiLU activation is used throughout, and dropout is used to help regularize in the dense layers.
+The 1D-CNN architecture has six 1D CNN layers thats feed into three dense layers. Average pooling is used between 1D CNN layers, SiLU activation is used throughout, and dropout is used to help regularize in the dense layers.
 
 Through multiple experiments is was found that polarity inversion was a beneficial augmentation technique. [Audiomentations][6] was used for testing various one-dimensional data augmentation techniques.
 
