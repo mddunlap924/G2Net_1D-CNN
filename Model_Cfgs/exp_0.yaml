@@ -1,0 +1,62 @@
+SUB_SCORE_BEST: .nan
+SUB_SCORE_LAST: .nan
+LOSS: 'bce'
+PRECISION: 32
+BATCH_SIZE: 64
+CKPT: best
+DATASET: Raw_4
+N_FOLDS: 5
+FOLDS:
+- 0
+EPOCHS: 10
+LEARNING_SCHEDULER:
+  T_0: 10
+  T_mult: 1
+  lr_initial: 1.0e-02
+  lr_min: 8.0e-05
+  scheduler: cosinewarmrestarts
+MODEL:
+  name: 'custom_1D'
+  num_neurons: .nan
+MONITOR:
+  metric: val/auroc
+  mode: max
+PARTIAL: True
+TTA: True
+LIMIT_BATCHES:
+  apply: False
+  percent: 0.10
+WHITEN:
+  alpha: 0.25
+  leakage_window_type: 'tukey'
+  filter_type: 'bandpass'
+  fmin: 15
+  fmax: 1000
+  xcorr: False
+AUG:
+  TimeStretch:
+    apply: False
+    prob: 0.10
+    min_rate: 1.0
+    max_rate: 1.4
+  PitchShift:
+    apply: False
+    prob: 0.10
+    min_semitones: -2
+    max_semitones: 2
+  Shift:
+    apply: False
+    prob: 0.5
+    fraction: 0.15
+  Gain:
+    apply: False
+    prob: 0.20
+    min_gain_in_db: -0.5
+    max_gain_in_db: 0.5
+  PolarityInversion:
+    apply: True
+    prob: 0.50
+TRAINING_CONTINUE:
+  apply: False
+  run: '3l9xuja6'
+
