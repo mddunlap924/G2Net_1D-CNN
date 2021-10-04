@@ -1,4 +1,4 @@
-# G2Net Gravitational Wave Detection – 1D CNN
+# G2Net Gravitational Wave Detection – 1D-CNN
 
 
 
