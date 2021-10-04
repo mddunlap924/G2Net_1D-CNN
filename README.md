@@ -16,9 +16,9 @@ The data is ~77GB and can be found on [Kaggle](https://www.kaggle.com/c/g2net-gr
 
 # 1D-CNN
 
-In this section a description of the modeling approach and steps required to execute the code are provided. PyTorch Lightning [[1]](https://www.pytorchlightning.ai/) was used for this project. 
+In this section a description of the modeling approach and steps required to execute the code are provided. [PyTorch Lightning][1] was used for this project. 
 
-1. The [execute_models_bash]() is used to execute a model and its configuration. Run commands in the terminal to execute. This file can be modified to execute over multiple configuration files. This approach is helpful for experimenting with various hyperparameters, training on multiple data folds,  and allowing you to work on other tasks. At the time of writing PyTorch Lightning had an issue with releasing RAM [[2]](https://github.com/PyTorchLightning/pytorch-lightning/issues/2010) and this was a suitable workaround.
+1. The [execute_models_bash]() is used to execute a model and its configuration. Run commands in the terminal to execute. This file can be modified to execute over multiple configuration files. This approach is helpful for experimenting with various hyperparameters, training on multiple data folds,  and allowing you to work on other tasks. At the time of writing PyTorch Lightning had an issue with [releasing RAM][2] and this was a suitable workaround.
 
    ```
    sh execute_models_bash
@@ -28,15 +28,13 @@ In this section a description of the modeling approach and steps required to exe
 
 3. [pl_model_1d.py]() contains methods and classes for tasks such as data normalization, waveform augmentations, data loaders, data modules, 1D-CNN model description, and checkpoint locations.
 
-4. [helper_functions_1d.py]() contains methods and classes for tasks such as logging data with Weights & Biases [[3]](https://wandb.ai/site), signal process and filtering techniques with GWpy [[4]](https://gwpy.github.io/) such as data whitening [[5]](http://www.xsgeo.com/course/spec.htm), loading configuration parameters, and measuring descriptive statistics on the datasets.
+4. [helper_functions_1d.py]() contains methods and classes for tasks such as logging data with [Weights & Biases][3], signal process and filtering techniques with [GWpy][4] such as data [spectral whitening][5], loading configuration parameters, and measuring descriptive statistics on the datasets.
 
 The 1D-CNN architecture is a six layer 1D CNN thats feed into three dense layers. Average pooling is used between 1D CNN layers, SiLU activation is used throughout, and dropout is used to help regularize in the dense layers.
 
-Through multiple experiments is was found that polarity inversion was a beneficial augmentation technique. Audiomentations [[6]](https://github.com/iver56/audiomentations) was used for testing various one-dimensional data augmentation techniques.
+Through multiple experiments is was found that polarity inversion was a beneficial augmentation technique. [Audiomentations][6] was used for testing various one-dimensional data augmentation techniques.
 
 Users are encouraged to modify the files as they see fit to best work with their applications. 
-
-# References
 
 [1]: https://www.pytorchlightning.ai/	"PyTorch Lightning"
 [2]: https://github.com/PyTorchLightning/pytorch-lightning/issues/2010	"RAM not correctly released when training a pl module multiple times #2010"
