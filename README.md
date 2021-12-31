@@ -18,17 +18,17 @@ The data is ~77GB and can be found on [Kaggle](https://www.kaggle.com/c/g2net-gr
 
 In this section a description of the modeling approach and steps required to execute the code are provided. [PyTorch Lightning][1] was used for this project. 
 
-1. The [execute_models_bash]() is used to execute a model and its configuration. Run commands in the terminal to execute. This file can be modified to execute over multiple configuration files. This approach is helpful for experimenting with various hyperparameters, training on multiple data folds,  and allowing you to work on other tasks. At the time of writing PyTorch Lightning had an issue with [releasing RAM][2] and this was a suitable workaround.
+1. The [execute_models_bash](https://github.com/mddunlap924/G2Net_1D-CNN/blob/main/execute_models_bash) is used to execute a model and its configuration. Run commands in the terminal to execute. This file can be modified to execute over multiple configuration files. This approach is helpful for experimenting with various hyperparameters, training on multiple data folds,  and allowing you to work on other tasks. At the time of writing PyTorch Lightning had an issue with [releasing RAM][2] and this was a suitable workaround.
 
    ```
    sh execute_models_bash
    ```
 
-2. [main_1D.py]() contains the high-level workflow and structure for calling commands such as data loading, k-fold splitting, data preprocessing, training, logging results, and inference. This file provides the overall workflow. 
+2. [main_1D.py](https://github.com/mddunlap924/G2Net_1D-CNN/blob/main/main_1D.py) contains the high-level workflow and structure for calling commands such as data loading, k-fold splitting, data preprocessing, training, logging results, and inference. This file provides the overall workflow. 
 
-3. [pl_model_1d.py]() contains methods and classes for tasks such as data normalization, waveform augmentations, data loaders, data modules, 1D-CNN model description, and checkpoint locations.
+3. [pl_model_1d.py](https://github.com/mddunlap924/G2Net_1D-CNN/blob/main/pl_model_1D.py) contains methods and classes for tasks such as data normalization, waveform augmentations, data loaders, data modules, 1D-CNN model description, and checkpoint locations.
 
-4. [helper_functions_1d.py]() contains methods and classes for tasks such as logging data with [Weights & Biases][3], signal processing and filtering techniques with [GWpy][4] such as data [spectral whitening][5], loading configuration parameters, and measuring descriptive statistics on the datasets.
+4. [helper_functions_1d.py](https://github.com/mddunlap924/G2Net_1D-CNN/blob/main/helper_functions_1D.py) contains methods and classes for tasks such as logging data with [Weights & Biases][3], signal processing and filtering techniques with [GWpy][4] such as data [spectral whitening][5], loading configuration parameters, and measuring descriptive statistics on the datasets.
 
 The 1D-CNN architecture has six 1D CNN layers thats feed into three dense layers. Average pooling is used between 1D CNN layers, SiLU activation is used throughout, and dropout is used to help regularize in the dense layers.
 
